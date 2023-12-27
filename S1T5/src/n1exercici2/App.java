@@ -1,6 +1,7 @@
 package n1exercici2;
 
 import java.io.File;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -25,13 +26,18 @@ public class App {
 			
 			if (f.isDirectory()) {
 				
-				System.out.println(listaEscritorio[i] + " (D)");
+				Date fecha = new Date (f.lastModified());
+				
+				System.out.println(listaEscritorio[i] + " (D)" + fecha);
 					
 				imprimirDirectorio(f);
 				
 			} else {
 				
-				System.out.println(listaEscritorio[i] + " (F)");
+				Date fecha = new Date (f.lastModified());
+				
+				System.out.println(listaEscritorio[i] + " (F)" + fecha);
+				
 				
 			}
 		}

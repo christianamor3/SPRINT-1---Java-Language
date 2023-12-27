@@ -1,7 +1,7 @@
-Carpeta1Cosa (D)
-Nuevo Presentación de Microsoft PowerPoint.pptx (F)
-CarpetaConCosas (D)
-Nuevo Documento de Microsoft Word.docx (F)
-Nuevo Microsoft Access Base de datos.accdb (F)
-Nuevo Documento de Microsoft Word.docx (F)
-Prueba.txt (F)
+Carpeta1Cosa (D)2023-12-27
+Nuevo Presentación de Microsoft PowerPoint.pptx (F)2023-12-27
+CarpetaConCosas (D)2023-12-27
+Nuevo Documento de Microsoft Word.docx (F)2023-12-27
+Nuevo Microsoft Access Base de datos.accdb (F)2023-12-27
+Nuevo Documento de Microsoft Word.docx (F)2023-12-27
+Prueba.txt (F)2023-12-27

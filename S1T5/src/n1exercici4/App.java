@@ -1,6 +1,8 @@
-package n1exercici3;
+package n1exercici4;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -19,9 +21,24 @@ public class App {
 		
 		System.out.println("Ya se ha guardado el listado de archivos en su documento .txt");
 		
+		leerArchivoTXT("ListaLista.txt");
 		
 		
+	}
+	
+	public static void leerArchivoTXT(String ruta) {
+		File file = new File(ruta);
 		
+		try {
+			BufferedReader salida = new BufferedReader(new FileReader(file));
+			String linea="";
+			while ((linea=salida.readLine())!=null) {
+				System.out.println(linea);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("El archivo no se ha encontrado");
+		}
 	}
 	
 	public static void escribirArchivo(String ruta, String contenido) {
