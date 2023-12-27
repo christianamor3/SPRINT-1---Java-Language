@@ -11,6 +11,8 @@ public class App {
 		
 		File file = new File("C:/Users/Cristian/PruebaRuta");
 		imprimirDirectorio (file);
+		
+		
 	}
 	
 	public static void imprimirDirectorio (File file) {

@@ -1,0 +1,7 @@
+Carpeta1Cosa (D)
+Nuevo Presentación de Microsoft PowerPoint.pptx (F)
+CarpetaConCosas (D)
+Nuevo Documento de Microsoft Word.docx (F)
+Nuevo Microsoft Access Base de datos.accdb (F)
+Nuevo Documento de Microsoft Word.docx (F)
+Prueba.txt (F)
