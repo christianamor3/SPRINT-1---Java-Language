@@ -1,0 +1,22 @@
+Orden1:
+	- Filtro por si es o no una instancia de String.
+	- Modifico de Obj a String con Map.
+	- Ordeno con Sorted segun la primera letra con str.toLowerCase().charAt(0)
+
+Orden2:
+	- Filtro por si es o no una instancia de String.
+	- Modifico de Obj a String con Map.
+	- Ordeno con Sorted segun si contiene "e" con str.toLowerCase().contains("e")
+	y le pongo reversed() para que me lo haga en orden descendete. De más e a menos.
+
+
+Orden3.
+	- Filtro por si es o no una instancia de String.
+	- Modifico de Obj a String con Map.
+	- Modifico las "a" por un "4" con un Map:
+		- str -> str.replace("a", "4")
+		
+Orden4:
+	- Filtro por si es o no una instancia de Integer
+	- Modifico de Obj a Integer con Map.
+	- Imprimo la lista con el forEach() + un method reference.

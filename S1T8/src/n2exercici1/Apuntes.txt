@@ -1,0 +1,10 @@
+con el .map transformo una lista. Entonces lo que hago es
+mirar si los numeros son pares con un % =0, si lo son, les pongo la "e"+num, 
+si no lo son, pongo la "o" + num. 
+
+Después con el collect los almaceno ya cambiados en una cadena separada por comas
+con el joining(", "));
+
+return numeros.stream().map(num -> (num%2==0 ? "e" : "o") + num)
+				.collect(Collectors.joining(", "));
+	}
