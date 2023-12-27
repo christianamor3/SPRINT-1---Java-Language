@@ -1,0 +1,17 @@
+Creamos un archivo file con la ruta de la carpeta.
+
+Con el metodo .list(), convertimos los archivos de la carpeta en una lista
+y los almacenamos en una Array.
+
+Ahora recorremos la array que tiene los archivos de la carpeta con un bucle for.
+
+Por cada iteracion del bucle for, comprobamos si ese archivo 
+ES o NO un directorio, es decir, una carpeta.
+
+En el caso de ser una carpeta, entramos de nuevo en el metodo de imprimirDirectorio, 
+ya que vamos a hacer lo que ya hemos hecho:
+	Pasar los archivos de esa carpeta a una lista y a una array,
+	Despues recorrerlos con un for y verificar si son o no una carpeta
+	Si es una carpeta volveria a entrar en el metodo.
+
+En el caso de no ser una carpeta, indicamos que es un (F) y continuamos con el bucle.
