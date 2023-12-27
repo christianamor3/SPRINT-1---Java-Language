@@ -1,0 +1,1 @@
+Primero filtro para saber si el objeto es una instancia de String. Si lo es, casteame el objeto a String. Ahora ordenamelos por longitud e imprimemelos. 

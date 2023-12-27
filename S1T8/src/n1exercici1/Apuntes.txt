@@ -1,0 +1,2 @@
+1. Como el collector me lo convierte todo a una lista, creo una nueva arraylist a partir de esa lista, 
+enviándosela por parametro.

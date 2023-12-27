@@ -1,0 +1,19 @@
+En una interfaz crear una plantilla de un metodo:
+	tipoRetorno nombreMetodo (tipoDato n1);
+	
+En el main del App, instanciar un objeto de tipo interfaz, asiganarle si recibirá o
+no parametros mediante un (), y después definir el metodo dentro de {}:
+
+interface Calculadora
+
+		int operacion(int n1, int n2);
+
+main
+
+		Calculadora calc1 = (n1,n2) -> {
+			return n1+n2;
+		};
+
+			llamo al metodo: calc1.operacion(8,5);
+
+	

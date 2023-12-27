@@ -1,0 +1,2 @@
+1. Impresion de toda una lista con el forEach() y una expresion lambda.
+		nomsMesosAny.stream().forEach(str -> System.out.println(str));

@@ -1,0 +1,2 @@
+1. Impresion de toda una lista con el forEach() y el method reference:
+		nomsMesosAny.stream().forEach(System.out::println);
