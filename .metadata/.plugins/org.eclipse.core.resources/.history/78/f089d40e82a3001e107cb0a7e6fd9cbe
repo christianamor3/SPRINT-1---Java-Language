@@ -1,0 +1,16 @@
+package n2exercici2;
+
+import java.util.ArrayList;
+
+public class GenericMethods <T>{
+
+	public static void imprimirArguments(ArrayList<?> tipoGenerico) {
+		System.out.println(tipoGenerico);
+		
+
+	}
+	
+	
+	
+	
+}

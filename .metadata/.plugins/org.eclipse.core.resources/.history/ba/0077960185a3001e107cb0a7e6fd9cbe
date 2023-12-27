@@ -1,0 +1,18 @@
+package n3exercici1;
+
+public class Generica <T extends Telefon, E extends Smartphone>{
+
+	T tipoGenericoLimitTelefon;
+	E tipoGenericoLimitSmartphone;
+	
+	public static <T> returnT(T tipoGenericoLimitTelefon) {
+		tipoGenericoLimitTelefon.tr
+		
+	}
+	
+	public static <E> E returnE(E tipoGenericoLimitSmartphone) {
+		return tipoGenericoLimitSmartphone;
+		
+	}
+	
+}

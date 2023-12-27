@@ -1,0 +1,23 @@
+package n1exercici3;
+
+public class LlençaException {
+
+	public int saberIndice(int valorIndice) {
+		
+		System.out.println("Tengo una array con 3 numeros. Marc 1 o 2 o 3 para saber un numero aleatorio");
+		int[] numeros = {10,33,55};
+		
+		int numSolucion=0;
+		
+		if (valorIndice==0) {
+			numSolucion=numeros[0];
+		} else if(valorIndice==1) {
+			numSolucion=numeros[1];
+		} else if(valorIndice==2) {
+			numSolucion=numeros[2];
+		} else if(valorIndice>2) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		return numSolucion;
+	}
+}

@@ -1,0 +1,16 @@
+package n3exercici1;
+
+public class Persona {
+
+	private String nom;
+	private String cognom;
+	private String DNI;
+	
+	public Persona(String nom, String cognom, String DNI) {
+		this.nom = nom;
+		this.cognom = cognom;
+		this.DNI = DNI;
+	}
+	
+	
+}

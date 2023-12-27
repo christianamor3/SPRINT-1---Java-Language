@@ -1,0 +1,18 @@
+package n1exercici2;
+
+public class GenericMethods <T, F, G>{
+
+	T tipoGenerico;
+	F tipoGenerico2;
+	G tipoGenerico3;
+	
+	public GenericMethods(T tipoGenerico, F tipoGenerico2, G tipoGenerico3) {
+		this.tipoGenerico = tipoGenerico;
+		this.tipoGenerico2 = tipoGenerico2;
+		this.tipoGenerico3 = tipoGenerico3;
+	}
+	
+	
+	
+	
+}

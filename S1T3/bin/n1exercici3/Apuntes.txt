@@ -1,0 +1,37 @@
+1. Lo primero que hago es leer el archivo.txt y pasar los datos
+a un HashMap.
+
+	Para ello, uso el metodo linea.split(" "), que me dividirá las
+	palabras que haya en cada linea segun el espacio " " que haya entre
+	ellas.
+	Como cada linea tiene un pais y una capital, por cada iteracion 
+	me guarda el pais en la posicion 0 de un Array, y la capital
+	en la posicion 1 de esa misma Array.
+	Ahora paso cada pais y capital al hashmap.
+
+
+2. Para buscar en un hashmap, lo mejor es coger el set de la 
+clave/key, es decir, el conjunto de Strings(paises), y pasarlos a una
+array de Strings vacia.
+
+Esto es asi por que solo a través del nombre de un pais(clave), puedo
+acceder a su capital(value) y compararla con la respuesta del usuario para sumar puntos
+
+Pasarlos a una Array es la unica forma de acceder a los
+elementos key del HashMap, ya que permite acceder a ellos mediante un indice.
+
+	Por lo tanto, en la array, podre buscar mediante un indice, un string (pais)
+	en la array de paises y mediante el metodo paisesCapitales.get(clave) podré 
+	acceder a su value.
+
+	El metodo paisesCapitales.get(clave), me está devolviendo el value 
+	asociado a la clave que le paso por parametro. Es decir, si le paso España,
+	me devuelve Madrid.
+
+	Por lo tanto, si le paso por parametro el pais (String), me devolverá la capital.
+	Como los nombres de los paises los tengo almacenados en la Array de Keys, solo con el numero
+	random puedo acceder a uno de esos keys, y a partir de ahí, pasarselo por parametro al metodo .get(key).
+
+	Tan solo me falta preguntarle al usuario la capital y compararla con la capital del pais 
+	que he pasado por parametro.
+	

@@ -1,0 +1,10 @@
+Leer el archivo y separar las lineas en palabras.
+Como se que hay 3, hacer un array para cada dato (nom, cognom, DNI).
+Por cada linea que recorra, me separará los datos de la linea, los almacenará en una array general, 
+y después cada dato lo almacenaré en su array propia.
+A partir de eso, puedo llamar al metodo constructor persona, crear una persona, y añadirlo a la arraylist de objetos
+persona.
+
+A partir de la arraylist de objetos persona, podré acceder a sus atributos, como antes en Restaurant. E ir ordenando.
+
+Avisar a pedro lopez por discord que me corrija algunos ejercicios.

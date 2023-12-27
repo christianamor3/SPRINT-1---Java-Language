@@ -1,0 +1,143 @@
+package n3exercici1;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Scanner;
+
+import n2exercici2.Restaurant;
+
+public class App {
+
+	public static void main(String[] args) {
+	
+		ArrayList<Persona> personas = new ArrayList<>();
+				
+		boolean seguirBucle=true;
+		
+		while(seguirBucle) {
+			seguirBucle=menuOpciones(personas, imprimirMenu(), seguirBucle);
+		}
+
+	}
+	
+	public static void imprimirOrdenAlfabeticoAsc(ArrayList<Persona> persones) {
+		persones.stream().sorted(Comparator.comparing(Persona::getNom)).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
+	} 
+	
+	public static void imprimirOrdenAlfabeticoDes(ArrayList<Persona> persones) {
+		persones.stream().sorted(Comparator.comparing(Persona::getNom).reversed()).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
+	} 
+	
+	public static void imprimirApellidoOrdenAlfabeticoAsc(ArrayList<Persona> persones) {
+		persones.stream().sorted(Comparator.comparing(Persona::getCognom)).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
+	} 
+	
+	public static void imprimirApellidoOrdenAlfabeticoDes(ArrayList<Persona> persones) {
+		persones.stream().sorted(Comparator.comparing(Persona::getCognom).reversed()).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
+	} 
+	
+	public static void imprimirDNIOrdenAsc(ArrayList<Persona> persones) {
+		persones.stream().sorted(Comparator.comparing(Persona::getDNI)).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
+	} 
+	
+	public static void imprimirDNIOrdenDes(ArrayList<Persona> persones) {
+		persones.stream().sorted(Comparator.comparing(Persona::getDNI).reversed()).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
+	} 
+	
+	public static void introducirPersonasArray(ArrayList <Persona> personas, String nom, String cognom, String DNI){
+		personas.add(new Persona(nom, cognom, DNI));
+		System.out.println("La persona se ha añadido a la arraylist");
+	}
+	
+	public static void introducirPersonasArchivoCSV(String rutaArchivo, ArrayList<Persona> personas) {
+			File archivo = new File(rutaArchivo);
+			
+			try {
+				FileWriter fw = new FileWriter(archivo,true);
+				PrintWriter salida = new PrintWriter(fw);
+				for (int i=0;i<personas.size();i++) {
+					salida.print(personas.get(i).pasarDatosCSV() + "\n");
+				}
+				salida.close();
+				System.out.println("Se ha añadido la persona correctamente");
+			} catch (FileNotFoundException e) {
+				System.err.println(e.getMessage());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	public static int imprimirMenu() {
+		Scanner scanner = new Scanner(System.in);	
+		System.out.println("Indica cual de estas funciones deseas realizar");
+		System.out.println();
+		System.out.println("1. Introducir persona.");
+		System.out.println();
+		System.out.println("2. Mostrar les persones ordenades per nom (A-Z).");
+		System.out.println();
+		System.out.println("3. Mostrar les persones ordenades per nom (Z-A).");
+		System.out.println();
+		System.out.println("4. Mostrar les persones ordenades per cognoms (A-Z).");
+		System.out.println();
+		System.out.println("5. Mostrar les persones ordenades per cognoms (Z-A).");
+		System.out.println();
+		System.out.println("6. Mostrar les persones ordenades per DNI (1-9).");
+		System.out.println();
+		System.out.println("7. Mostrar les persones ordenades per DNI (9-1).");
+		System.out.println();
+		System.out.println("0. Salir de la aplicacion");
+		System.out.println();
+		return scanner.nextInt();
+	}
+	
+	public static boolean menuOpciones(ArrayList <Persona> personas,int numEleccion, boolean seguirBucle) {
+		int posicionIndice;
+		switch (numEleccion) {
+			case 1:
+				introducirPersonasArray(personas, pedirString("Introduce el nombre de la persona"), pedirString("Introduce el apellido de la persona"), pedirString("Introduce el DNI de la persona"));
+				introducirPersonasArchivoCSV("C:\\Users\\Cristian\\Downloads\\archivoPrueba - Hoja 1.csv", personas);
+				break;
+			case 2:
+				imprimirOrdenAlfabeticoAsc(personas);
+				break;
+			case 3:
+				imprimirOrdenAlfabeticoDes(personas);
+				break;
+			case 4:
+				imprimirApellidoOrdenAlfabeticoAsc(personas);
+				break;
+			case 5:
+				imprimirApellidoOrdenAlfabeticoDes(personas);
+				break;
+			case 6:
+				imprimirDNIOrdenAsc(personas);
+				break;
+			case 7:
+				imprimirDNIOrdenDes(personas);
+				break;
+			case 0: 
+				System.out.println("Has decidido salir de la aplicacion. ¡Hasta pronto!");
+				seguirBucle=false; 
+				break;
+			default:
+				System.out.println("No has seleccionado una opcion disponible.");
+				break;
+				}
+		return seguirBucle;
+		}	
+	
+	// Metodo para pedir String 
+	static String pedirString(String mensaje) { 
+		Scanner sc = new Scanner(System.in);
+		System.out.println(mensaje);
+		return sc.nextLine().toUpperCase();
+	}
+}

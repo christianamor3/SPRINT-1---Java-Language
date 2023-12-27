@@ -1,0 +1,9 @@
+Necesito crear un array antes que el hashset, por que mediante el hashset no puedo validar si dentro ya tiene
+un objeto con el mismo nombre y misma puntuacion. 
+
+	Con el HashSet, si es de numeros o Strings, si puedo validar si contiene uno igual, pero con un objeto que tiene
+	2 atributos no.
+
+Por lo tanto, creo el objeto, lo paso a un arraylist si esta
+vacia o ese objeto no coincide en nombre y puntuacion con ninguno de los que ya haya, y una vez tenga la arraylist lista
+la recorro y voy añadiendo los objetos al HashSet.

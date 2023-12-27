@@ -1,0 +1,11 @@
+Leer el archivo y separar las lineas en palabras.
+Como se que hay 3, hacer un array para cada dato (nom, cognom, DNI).
+Por cada linea que recorra, me separará los datos de la linea, los almacenará en una array general, 
+y después cada dato lo almacenaré en su array propia.
+
+A partir de eso, verifico si la linea corresponde a las columnas, o a una persona ya añadida a la arraylist.
+Si ya existe, no la añado, si no existe, la añado.
+
+Despues, con esa arraylist de personas sin duplicados, puedo ordenar segun lo que pide el ejercicio.
+
+Avisar a pedro lopez por discord que me corrija algunos ejercicios.

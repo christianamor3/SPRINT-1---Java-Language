@@ -1,0 +1,8 @@
+Para ordenar, uso el api stream(). y el metodo sorted().
+
+Primero ordeno por nombre, y después ordeno por puntuacion en orden descendente.
+
+restaurantsArray.stream().sorted(Comparator.comparing(Restaurant::getNom)
+	.thenComparing(Comparator.comparingInt(Restaurant::getPuntuacio).reversed()))
+		.forEach(System.out::println);
+	

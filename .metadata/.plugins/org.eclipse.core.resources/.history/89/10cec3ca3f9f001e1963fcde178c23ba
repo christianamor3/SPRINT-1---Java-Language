@@ -1,0 +1,91 @@
+package n1exercici3;
+
+import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.util.stream.Collectors;
+
+public class App {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		
+		HashMap<String, String> paisesCapitales = leerArchivo("C:\\Users\\Cristian\\Downloads\\countries.txt");
+		String [] paisesClave = paisesCapitales.keySet().toArray(new String[0]);
+		
+		crearArchivo("C:\\Users\\Cristian\\Downloads\\classificacio.txt");
+		
+		int puntuacio=0;
+
+		for (int i=1; i<=1;i++) {
+			String paisClave = generarPaisRandom(generarNumRandom(paisesClave),paisesClave);
+			
+			System.out.println(i + ". Introduce la capital de " + paisClave);
+			String respuesta = sc.nextLine();
+			
+			if (respuesta.equalsIgnoreCase(paisesCapitales.get(paisClave))) {
+				puntuacio++;
+			}
+		}
+		
+		System.out.println("Has acabado el juego");
+		
+		//escribirArchivo();
+		
+		System.out.println(puntuacio);
+		
+		
+		
+		
+	
+
+	}
+	
+	public static HashMap<String, String> leerArchivo(String rutaArchivo){
+		HashMap<String, String> paisesCapitales = new HashMap<>();
+		try {
+			FileReader archivo = new FileReader(rutaArchivo);
+			BufferedReader lector = new BufferedReader(archivo);
+			String linea;
+			while ((linea=lector.readLine())!=null) {
+				String [] paisesCapitalesArray = linea.split(" ");
+				String paises = paisesCapitalesArray[0];
+				String capitales = paisesCapitalesArray[1];
+				paisesCapitales.put(paises, capitales);
+			}
+			lector.close();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		return paisesCapitales;
+	}
+	
+	public static int generarNumRandom(String [] paisesClave) {
+		Random random = new Random();
+		int numRandom = random.nextInt(paisesClave.length);
+		return numRandom;
+	}
+	
+	public static String generarPaisRandom(int numRandom, String [] paisesClave) {
+		return paisesClave[numRandom];
+	}
+	
+	public static void crearArchivo(String rutaArchivo) {
+		File archivo = new File(rutaArchivo);
+		
+		try {
+			PrintWriter salida = new PrintWriter(archivo);
+			salida.close();
+		} catch (FileNotFoundException e) {
+			System.err.println(e.getMessage());
+		}
+	}
+	
+}
