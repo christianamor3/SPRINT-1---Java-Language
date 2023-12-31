@@ -21,7 +21,8 @@ public class App {
 		
 		System.out.println("Ya se ha guardado el listado de archivos en su documento .txt");
 		
-		leerArchivoTXT("ListaLista.txt");
+		// Es necesario poner la ruta del archivo que se quiere leer
+		leerArchivoTXT("rutArchivo.txt");
 		
 		
 	}
@@ -36,7 +37,6 @@ public class App {
 				System.out.println(linea);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
 			System.out.println("El archivo no se ha encontrado");
 		}
 	}

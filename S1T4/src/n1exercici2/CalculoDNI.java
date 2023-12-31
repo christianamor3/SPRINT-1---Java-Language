@@ -4,8 +4,6 @@ public class CalculoDNI {
 
 	public char calculoLetraDNI(int numeroDNI) {
 		char letraDNI = 0;
-		char[] posiblesLetras = {'A', 'B', 'C', 'D', 'E', 
-				'F', 'G', 'H', 'I', 'J', 'K', 'L'};
 		
 		if (numeroDNI>=1555555 && numeroDNI<2000000) {
 			letraDNI='A';

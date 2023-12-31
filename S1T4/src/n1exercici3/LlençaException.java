@@ -4,7 +4,6 @@ public class LlençaException {
 
 	public int saberIndice(int valorIndice) {
 		
-		System.out.println("Tengo una array con 3 numeros. Marc 1 o 2 o 3 para saber un numero aleatorio");
 		int[] numeros = {10,33,55};
 		
 		int numSolucion=0;
