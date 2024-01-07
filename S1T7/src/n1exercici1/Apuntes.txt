@@ -1,0 +1,5 @@
+En las clases hijas de Treballador, llamo al metodo calcularSou(), y sobreescribo el metodo
+con la anotacion @Override, para darle una configuracion diferente al metodo en cada clase hija.
+
+Despues creo un objeto de cada clase en la clase App, y demuestro que el mismo metodo, el de
+calcularSou(), funciona diferente en cada clase.
