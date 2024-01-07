@@ -1,0 +1,8 @@
+1. Creo la anotacion en una clase.
+2. Ahora aplico esa anotacion a otra clase.
+3. Ahora en la clase App creo un objeto de la clase que contiene la anotacion, 
+	y a partir de el, accedo a la anotacion.
+		Si la anotacion esta presente en la clase a la que pertenece el objeto, serializaremos. Si no, no.
+		Dentro del if, cogemos la anotacion de la clase y la guardamos en un objeto de anotacion del mismo tipo.
+		A partir de esa objeto anotacion, podemos acceder a su atributo directorio, y lo guardamos en un String, ya que es un String.
+		A partir de ese String, ya podemos serializar un objeto.
