@@ -1,7 +1,0 @@
-package n3exercici1;
-
-public interface Telefon {
-
-	public abstract void trucar(int numTelf);
-	
-}
