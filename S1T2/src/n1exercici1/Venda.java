@@ -22,8 +22,7 @@ public class Venda {
 		return productes;
 	}
 
-	public void calcularTotal() {
-		try {
+	public void calcularTotal() throws VendaBuidaException {
 			if (productes.size()==0) {
 				throw new VendaBuidaException();
 			} else {
@@ -31,11 +30,6 @@ public class Venda {
 					preuTotal+=productes.get(i).getPreu();
 				}
 			}
-		} catch (VendaBuidaException e) {
-			System.out.println(e.getMessage());
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println(e.getMessage());
-		}
 		System.out.println("La suma del preu de tots els productes es de " + preuTotal + " €");
 	}
 }

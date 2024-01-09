@@ -10,7 +10,13 @@ public class App {
 		/* Llamo al metodo sin añadir ningun objeto a la lista
 		para provocar la primera excepcion */
 		
-		venda1.calcularTotal();
+		try {
+			venda1.calcularTotal();
+		} catch (VendaBuidaException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
 		
 		Producte pr1 = new Producte("Movil", 200);
 		Producte pr2 = new Producte("Funda", 10);
@@ -23,8 +29,20 @@ public class App {
 		venda2.getProductes().add(pr2);
 		venda1.getProductes().add(pr3);
 		
-		venda1.calcularTotal();
-		venda2.calcularTotal();
+		try {
+			venda1.calcularTotal();
+		} catch (VendaBuidaException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			venda2.calcularTotal();
+		} catch (VendaBuidaException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
 		
 
 	}
