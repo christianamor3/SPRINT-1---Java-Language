@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Programa {
 
-	public static void Programa() {
+	public static void programa() {
 		Scanner sc = new Scanner (System.in);
 		
 		System.out.println("Introdueix la ruta de l'arxiu countries:");

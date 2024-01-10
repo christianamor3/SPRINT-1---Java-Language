@@ -1,1 +1,0 @@
-Creo que el ejercicio 4 se refiere a leer cualquier txt que haya en la carpeta.

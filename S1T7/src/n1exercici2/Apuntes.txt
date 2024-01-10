@@ -1,5 +1,6 @@
+
+Creo un metodo en cada clase hija y lo declaro obsoleto con la anotacion @Deprecated
+
 A traves de un objeto de cada clase, invoco los metodos obsoletos
 
-de cada clase, los cuales he marcado que son obsoletos con la anotacion @Deprecated,
-
-y elimino el warning con la anotacion @SuppressWarnings("deprecation").
+me sale un warning que elimino con la anotacion @SuppressWarnings("deprecation").

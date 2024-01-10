@@ -2,7 +2,7 @@ package n1exercici1;
 
 public class Comprobaciones {
 
-	public void ejecucionPrograma() {
+	public static void ejecucionPrograma() {
 		
 		Venda venda1 = new Venda();
 		Venda venda2 = new Venda();
