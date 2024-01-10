@@ -14,7 +14,7 @@ public class App {
 			venda1.calcularTotal();
 		} catch (VendaBuidaException e) {
 			System.out.println(e.getMessage());
-		} catch (IndexOutOfBoundsException e) {
+		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println(e.getMessage());
 		}
 		
@@ -23,7 +23,7 @@ public class App {
 		Producte pr3 = new Producte("Casco", 75);
 		
 		/* Creo objetos de tipo Producte y los añado a la ArrayList
-		 , pero provocando una excepcion de IndexOutOfBounds al poner un =.
+		 , pero provocando una excepcion de ArrayIndexOutOfBounds al poner un =.
 		 */
 		venda1.getProductes().add(pr1);
 		venda2.getProductes().add(pr2);
