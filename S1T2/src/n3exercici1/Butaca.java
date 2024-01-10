@@ -2,9 +2,9 @@ package n3exercici1;
 
 public class Butaca {
 
-	int numFila;
-	int numSeient;
-	String persona;
+	private int numFila;
+	private int numSeient;
+	private String persona;
 	
 	public Butaca(int numFila, int numSeient, String persona) {
 		this.numFila = numFila;
@@ -12,7 +12,7 @@ public class Butaca {
 		this.persona = persona;
 	}
 
-	public int getNumFila() {
+	protected int getNumFila() {
 		return numFila;
 	}
 

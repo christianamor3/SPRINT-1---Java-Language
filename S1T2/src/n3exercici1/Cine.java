@@ -123,17 +123,17 @@ public class Cine {
 	}
 	
 	public void anularReservaPersona(String nomPersona) {
-		if (nomPersona.equalsIgnoreCase("null")){
-			
-		} else {
-			for (int i = 0; i<gestioButaques.butaques.size();i++) {
+		int chivato=-1;
+		int i=0;
+			while (i<gestioButaques.butaques.size() && chivato==-1) { 
 				if (nomPersona.equalsIgnoreCase(gestioButaques.butaques.get(i).getPersona())) {
 					gestioButaques.butaques.remove(i);
-				}
+				} 
+								
 			}
 			System.out.println("Les butaques reservades a nom de " + nomPersona + " s'han anulat correctament");
 		}
-	}
+		
 	
 	public String introduirPersona(String nomPersona) {
 		String nomPersonaCorrecte="null";
@@ -152,7 +152,7 @@ public class Cine {
 	public boolean verificacioNumeros(String nomPersona) {
 		boolean resultado=false;
 		for (int i=0; i<nomPersona.length();i++) {
-				if (nomPersona.charAt(i)<=0 || nomPersona.charAt(i)>=0) {
+				if (Character.isDigit(nomPersona.charAt(i))) {
 					resultado=true;
 				}
 		}

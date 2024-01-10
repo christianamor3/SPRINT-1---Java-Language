@@ -33,7 +33,7 @@ public class GestioButaques {
 	public int cercarButaca(int fila, int seient) {
 		int posicionIndice=-1;
 		for (int i=0; i<butaques.size();i++) {
-			if (fila==butaques.get(i).numFila && seient==butaques.get(i).numSeient) {
+			if (fila==butaques.get(i).getNumFila() && seient==butaques.get(i).getNumSeient()) {
 				posicionIndice=i;
 			}
 		}
@@ -43,7 +43,7 @@ public class GestioButaques {
 	public void eliminarButaca(int numFila, int numSeient) {
 		try {
 			for (int i=0; i<butaques.size();i++) {
-				if (numFila==butaques.get(i).numFila && numSeient==butaques.get(i).numSeient) {
+				if (numFila==butaques.get(i).getNumFila() && numSeient==butaques.get(i).getNumSeient()) {
 					butaques.remove(i);
 				} else {
 					throw new ExcepcioButacaLliure();
