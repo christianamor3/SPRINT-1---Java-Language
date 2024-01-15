@@ -1,4 +1,3 @@
-
 package n3exercici1;
 
 import java.io.BufferedReader;
@@ -8,20 +7,21 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+
 import java.util.Comparator;
 import java.util.Scanner;
+import java.util.TreeSet;
 
-import n2exercici1.ExcepcioRestaurantCreat;
-import n2exercici1.Restaurant;
+
 
 public class Programa {
 
 	public static void programa() {
 	
-		ArrayList<Persona> personas = new ArrayList<>();
+
 		String rutaArchivo = crearArchivoCSV("archivoPrueba - Hoja 1.csv");
 		introducirColumnas(rutaArchivo, new Persona (pedirString("Nombre de la primera Columna"), pedirString("Nombre de la segunda columna"), pedirString("Nombre de la tercera columna")));
+		TreeSet<Persona> personas = new TreeSet<>();
 		
 		boolean seguirBucle=true;
 		
@@ -31,7 +31,7 @@ public class Programa {
 
 	}
 
-	public static int imprimirMenu() {
+	private static int imprimirMenu() {
 		Scanner scanner = new Scanner(System.in);	
 		System.out.println("Indica cual de estas funciones deseas realizar");
 		System.out.println();
@@ -54,7 +54,7 @@ public class Programa {
 		return scanner.nextInt();
 	}
 	
-	public static boolean menuOpciones(ArrayList <Persona> personas, int numEleccion, boolean seguirBucle, String rutaArchivo) {
+	private static boolean menuOpciones(TreeSet<Persona> personas, int numEleccion, boolean seguirBucle, String rutaArchivo) {
 		switch (numEleccion) {
 			case 1:
 				introducirPersonasArchivoCSV(rutaArchivo, crearPersona(pedirString("Introduce el nombre de la persona"), pedirString("Introduce el apellido de la persona"), pedirString("Introduce el DNI de la persona")));
@@ -94,12 +94,12 @@ public class Programa {
 		return seguirBucle;
 		}	
 	
-	public static Persona crearPersona(String nom, String cognom, String DNI){
+	private static Persona crearPersona(String nom, String cognom, String DNI){
 		Persona persona = new Persona(nom, cognom, DNI);
 		return persona;
 	}
 	
-	public static void introducirPersonasArchivoCSV(String rutaArchivo, Persona persona) {
+	private static void introducirPersonasArchivoCSV(String rutaArchivo, Persona persona) {
 			File archivo = new File(rutaArchivo);
 		
 			try (FileWriter fw = new FileWriter(archivo,true)){
@@ -114,7 +114,7 @@ public class Programa {
 			}
 		}
 	
-	public static void introducirColumnas(String rutaArchivo, Persona persona) {
+	private static void introducirColumnas(String rutaArchivo, Persona persona) {
 		File archivo = new File(rutaArchivo);
 	
 		try (FileWriter fw = new FileWriter(archivo,true)){
@@ -129,22 +129,25 @@ public class Programa {
 		}
 	}
 		
-	public static String crearArchivoCSV(String rutaArchivo) {
+	private static String crearArchivoCSV(String rutaArchivo) {
 		File file = new File(rutaArchivo);
+		PrintWriter lector = null;
 		
 		try {
-			PrintWriter lector = new PrintWriter(file);
-			lector.close();
+			lector = new PrintWriter(file);
 			System.out.println("Se ha creado el archivo csv correctamete");
 		} catch (FileNotFoundException e){
 			e.printStackTrace();
+		} finally {
+			lector.close();
 		}
 		return rutaArchivo;
 	}
-	public static void leerArchivoCSV(String rutaArchivo, ArrayList<Persona> personas) {
-		
+	
+	private static void leerArchivoCSV(String rutaArchivo,TreeSet<Persona> personas) {
+		BufferedReader lector = null;
 		try {
-			BufferedReader lector = new BufferedReader(new FileReader(rutaArchivo));
+			lector = new BufferedReader(new FileReader(rutaArchivo));
 			String linea;
 				while((linea=lector.readLine())!=null) {
 					String[] nomCognomDNI=linea.split(",");
@@ -153,67 +156,80 @@ public class Programa {
 					String DNI=nomCognomDNI[2];
 						if (nom.equalsIgnoreCase("nom") || cognom.equalsIgnoreCase("cognoms") || DNI.equalsIgnoreCase("dni")){
 							
-						} else if (personas.size()==0){
-							Persona persona = new Persona(nom, cognom, DNI);
-							personas.add(persona);
 						} else {
 							Persona persona = new Persona(nom, cognom, DNI);
-							 if (validacionPersonas(personas, persona)) {
+							 if (!personas.contains(persona)) {
 									personas.add(persona);
 								}
 						}
 				}
-	
-			lector.close();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				lector.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
-	public static boolean validacionPersonas(ArrayList<Persona> personas, Persona p1) {
-		boolean validacion=true;
-			for (int i=0; i<personas.size();i++) {
-				if ((personas.get(i).getDNI().equalsIgnoreCase(p1.getDNI()))) {
-					validacion=false;
-				}
-			} 
-		return validacion;
+	
+	private static void imprimirOrdenAlfabeticoAsc(TreeSet<Persona> personas) {
+		for (Persona prs : personas) {
+			System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI());
+		}
 	}
 	
-	public static void imprimirOrdenAlfabeticoAsc(ArrayList<Persona> personas) {
-		System.out.println("___NOM___COGNOMS___DNI___");
-		personas.stream().sorted(Comparator.comparing(Persona::getNom)).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
-	} 
+	private static void imprimirOrdenAlfabeticoDes(TreeSet<Persona> personas) {
+        TreeSet<Persona> treeSetNombreDescendente = new TreeSet<>(Comparator.comparing(Persona::getNom).reversed()); // Creamos un nuevo treeset que ordenará de la siguiente forma.
+        treeSetNombreDescendente.addAll(personas); // Añadimos los elementos del treeset personas al treeset nuevo.
+
+        for (Persona prs: treeSetNombreDescendente) {
+			System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI());
+        }
+	}
 	
-	public static void imprimirOrdenAlfabeticoDes(ArrayList<Persona> personas) {
-		System.out.println("___NOM___COGNOMS___DNI___");
-		personas.stream().sorted(Comparator.comparing(Persona::getNom).reversed()).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
-	} 
+	private static void imprimirApellidoOrdenAlfabeticoAsc(TreeSet<Persona> personas) {
+		TreeSet<Persona> treeSetApellido = new TreeSet<>(Comparator.comparing(Persona::getCognom));
+		treeSetApellido.addAll(personas);
+
+        for (Persona prs: treeSetApellido) {
+			System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI());
+        }
+	}
 	
-	public static void imprimirApellidoOrdenAlfabeticoAsc(ArrayList<Persona> personas) {
-		System.out.println("___NOM___COGNOMS___DNI___");
-		personas.stream().sorted(Comparator.comparing(Persona::getCognom)).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
-	} 
 	
-	public static void imprimirApellidoOrdenAlfabeticoDes(ArrayList<Persona> personas) {
-		System.out.println("___NOM___COGNOMS___DNI___");
-		personas.stream().sorted(Comparator.comparing(Persona::getCognom).reversed()).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
-	} 
+	private static void imprimirApellidoOrdenAlfabeticoDes(TreeSet<Persona> personas) {
+		TreeSet<Persona> treeSetApellidoDescendente = new TreeSet<>(Comparator.comparing(Persona::getCognom).reversed());
+		treeSetApellidoDescendente.addAll(personas);
+
+        for (Persona prs: treeSetApellidoDescendente) {
+			System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI());
+        }
+	}
+		
+	private static void imprimirDNIOrdenAsc(TreeSet<Persona> personas) {
+		TreeSet<Persona> treeSetDNI= new TreeSet<>(Comparator.comparing(Persona::getDNI));
+		treeSetDNI.addAll(personas);
+
+        for (Persona prs: treeSetDNI) {
+			System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI());
+        }
+	}
 	
-	public static void imprimirDNIOrdenAsc(ArrayList<Persona> personas) {
-		System.out.println("___NOM___COGNOMS___DNI___");
-		personas.stream().sorted(Comparator.comparing(Persona::getDNI)).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
-	} 
-	
-	public static void imprimirDNIOrdenDes(ArrayList<Persona> personas) {
-		System.out.println("___NOM___COGNOMS___DNI___");
-		personas.stream().sorted(Comparator.comparing(Persona::getDNI).reversed()).forEach(prs -> System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI()));
-	} 
+	private static void imprimirDNIOrdenDes(TreeSet<Persona> personas) {
+		TreeSet<Persona> treeSetDNIDescendente = new TreeSet<>(Comparator.comparing(Persona::getDNI).reversed());
+		treeSetDNIDescendente.addAll(personas);
+
+        for (Persona prs: treeSetDNIDescendente) {
+			System.out.println(prs.getNom() + " " + prs.getCognom() + " " + prs.getDNI());
+        }
+	}
 	
 	
 	// Metodo para pedir String 
-	static String pedirString(String mensaje) { 
+	private static String pedirString(String mensaje) { 
 		Scanner sc = new Scanner(System.in);
 		System.out.println(mensaje);
 		return sc.nextLine().toUpperCase();

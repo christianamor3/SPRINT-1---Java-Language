@@ -1,5 +1,7 @@
 package n2exercici1;
 
+import java.util.Objects;
+
 public class Restaurant {
 
 	private String nom;
@@ -27,7 +29,22 @@ public class Restaurant {
 		this.puntuacio = puntuacio;
 	}
 
-	
+	@Override
+    public int hashCode() {
+        return Objects.hash(nom, puntuacio);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Restaurant restaurant = (Restaurant) obj;
+        return puntuacio == restaurant.puntuacio && Objects.equals(nom, restaurant.nom);
+    }
 	
 	
 }

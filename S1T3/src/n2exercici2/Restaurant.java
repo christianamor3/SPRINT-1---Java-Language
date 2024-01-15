@@ -1,6 +1,8 @@
 package n2exercici2;
 
-public class Restaurant {
+import java.util.Objects;
+
+public class Restaurant implements Comparable <Restaurant>{
 
 	private String nom;
 	private int puntuacio;
@@ -28,12 +30,30 @@ public class Restaurant {
 	}
 
 	@Override
-	public String toString() {
-		return "nom:" + nom + ", puntuacio=" + puntuacio + "]";
-	}
+    public int hashCode() {
+        return Objects.hash(nom, puntuacio);
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Restaurant restaurant = (Restaurant) obj;
+        return puntuacio == restaurant.puntuacio && Objects.equals(nom, restaurant.nom);
+    }
 	
-	
-	
+    @Override
+    public int compareTo(Restaurant other) {
+        // Comparació per nom i després per puntuació en ordre ascendent
+        int comparacioPerNom = this.nom.compareTo(other.nom);
+        if (comparacioPerNom == 0) {
+            return Integer.compare(this.puntuacio, other.puntuacio);
+        }
+        return comparacioPerNom;
+    }
 	
 }
