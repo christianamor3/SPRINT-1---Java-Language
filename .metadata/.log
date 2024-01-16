@@ -11534,3 +11534,8 @@ Java Model Exception: Error in Java Model (code 969): [Working copy] n1ex1test.j
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 !SUBENTRY 1 org.eclipse.jdt.core 4 969 2024-01-16 14:00:23.778
 !MESSAGE [Working copy] n1ex1test.java [in n1exercici1 [in src [in S1T4]]] does not exist
+
+!ENTRY org.eclipse.core.resources 2 2 2024-01-16 16:27:58.391
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2024-01-16 16:27:58.391
+!MESSAGE The project description file (.project) for 'ITAcademyPruebas' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.

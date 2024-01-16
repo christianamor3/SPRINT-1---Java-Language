@@ -7,7 +7,7 @@ validando si ya estan o no dentro con su metodo CONTAINS, para posteriormente
 imprimir la lista resultante.
 
 Hay que recordar que un hashSet no permite duplicados, pero lo hace mediante una 
-comprobacion con su metodo Contains. Para que este funcione correctamente, debemos
+comprobacion con su metodo contains(). Para que este funcione correctamente, debemos
 sobreescribir en la clase Restaurant los metodos
 	- hashCode
 	- equals

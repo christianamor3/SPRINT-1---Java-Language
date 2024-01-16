@@ -1,11 +1,28 @@
-Leer el archivo y separar las lineas en palabras.
-Como se que hay 3, hacer un array para cada dato (nom, cognom, DNI).
-Por cada linea que recorra, me separará los datos de la linea, los almacenará en una array general, 
-y después cada dato lo almacenaré en su array propia.
+*USO DEL TREESET* (ORDENA SIN DUPLICADOS)
 
-A partir de eso, verifico si la linea corresponde a las columnas, o a una persona ya añadida a la arraylist.
-Si ya existe, no la añado, si no existe, la añado.
+Leer el archivo y separar las lineas en palabras 
+con el metodo split. Almacenarlas en un array.
 
-Despues, con esa arraylist de personas sin duplicados, puedo ordenar segun lo que pide el ejercicio.
+Después, cada dato lo almacenaré en su String propio 
+y creare objetos Persona con esos String como parametros.
 
-Avisar a pedro lopez por discord que me corrija algunos ejercicios.
+A partir de eso, verifico si la persona corresponde 
+a las columnas, y si no, compruebo si esta o no
+en el treeset con su metodo contains().
+	Para que este funcione, debe tener sobreescritos en la 
+	clase fabrica de los objetos Persona, es decir, 
+	en la clase Persona, los metodos hashCode e Equals.
+
+Si no esta en el treeset, añado la persona, si está, 
+no la añado.
+
+Despues, para el primer orden, simplemente
+necesito implementar en la clase fabrica Persona 
+la interfaz Comparable<Persona> para usar y sobreescribir
+su metodo compareTo().
+
+Para el resto de ordenamientos, necesito crear un 
+TreeSet concreto, especificandole por parametros
+como debe de ordenar los objetos Persona que reciba.
+Lo haremos mediante el Comparator.comparing.
+

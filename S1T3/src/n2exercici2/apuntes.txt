@@ -5,7 +5,7 @@ Creo un TreeSet a partir del hashSet sin duplicados.
 Para hacerlo:
 	- Le paso por parametro el hashSet al treeSet.
 	- En la clase Restaurant implemento la interfaz Comparable<Restaurant>
-	para usar su metodo compareTo.
+	para usar su metodo compareTo().
 	
 Ahora, cuando recorra el treeSet mediante el for each, ya me retornará la lista que 
 previamente teniamos en el hashSet, ordenada.
