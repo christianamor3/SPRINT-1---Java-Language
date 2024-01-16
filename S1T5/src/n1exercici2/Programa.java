@@ -22,7 +22,7 @@ public class Programa {
 		
 	}
 	
-	public static void imprimirDirectorio (File file) {
+	private static void imprimirDirectorio (File file) {
 		
 			String[] listaEscritorio = file.list();
 			

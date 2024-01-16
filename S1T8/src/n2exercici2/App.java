@@ -20,7 +20,7 @@ public class App {
 		
 	}
 	
-	public static String numerosEO (ArrayList<Integer> numeros){
+	private static String numerosEO (ArrayList<Integer> numeros){
 		return numeros.stream().map(num -> (num%2==0 ? "e" : "o") + num)
 				.collect(Collectors.joining(", "));
 	}

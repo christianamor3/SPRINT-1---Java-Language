@@ -40,23 +40,23 @@ public class App {
 		alumnesJavaMajors18(alumnes);
 	}
 	
-	public static void nomiEdat (ArrayList<Alumne> alumnes){
+	private static void nomiEdat (ArrayList<Alumne> alumnes){
 		alumnes.stream().forEach(alm -> System.out.println(alm.getNom() + " - " + alm.getEdat() ));;
 	}
 	
-	public static ArrayList<Alumne> començaPerA (ArrayList<Alumne> alumnes){
+	private static ArrayList<Alumne> començaPerA (ArrayList<Alumne> alumnes){
 		ArrayList<Alumne> començaPerA = new ArrayList<>(alumnes.stream()
 													.filter(alm -> alm.getNom().startsWith("A")).collect(Collectors.toList()));
 		return començaPerA;	
 	}
 	
-	public static void notaIgualOSuperiorA5 (ArrayList<Alumne> alumnes){
+	private static void notaIgualOSuperiorA5 (ArrayList<Alumne> alumnes){
 		alumnes.stream().filter(alm -> alm.getNota()>=5)
 									.forEach(alm -> System.out.println(alm.getNom() + " - " + alm.getNota() ));;
 
 	}
 	
-	public static void notaIgualOSuperiorA5NoSonPHP (ArrayList<Alumne> alumnes){
+	private static void notaIgualOSuperiorA5NoSonPHP (ArrayList<Alumne> alumnes){
 		alumnes.stream().filter(alm -> alm.getNota()>=5)
 										.filter(alm -> !alm.getCurs().equalsIgnoreCase("PHP"))
 										.forEach(alm -> System.out.println(alm.getNom() + " - " + alm.getCurs() ));;

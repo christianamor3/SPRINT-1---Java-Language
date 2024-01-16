@@ -24,7 +24,7 @@ public class App {
 		}
 	}
 	
-	public static ArrayList<String> nomsAmbA3 (ArrayList<String> noms){
+	private static ArrayList<String> nomsAmbA3 (ArrayList<String> noms){
 		ArrayList<String> nomsAmbA3 = new ArrayList<>(noms.stream().filter(str -> str.startsWith("A") && str.length()==3).collect(Collectors.toList()));
 		return nomsAmbA3;
 	}

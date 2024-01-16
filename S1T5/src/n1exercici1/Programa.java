@@ -22,7 +22,7 @@ public class Programa {
 		llistarDirectoriAlfabeticament(listaEscritorio);
 	}
 	
-	public static void llistarDirectoriAlfabeticament(String[] listaEscritorio) {
+	private static void llistarDirectoriAlfabeticament(String[] listaEscritorio) {
 			ArrayList<String> listaEscritorioArray = new ArrayList<>(Arrays.asList(listaEscritorio));
 			
 			listaEscritorioArray.stream().sorted(Comparator.comparing(str -> str.toLowerCase().charAt(0))).forEach(System.out::println);

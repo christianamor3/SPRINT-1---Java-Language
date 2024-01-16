@@ -37,7 +37,7 @@ public class App {
 			nomesNumerics(numerosIText);
 		}
 		
-		public static void ordreAlfabetic (ArrayList<Object> numerosIText){
+		private static void ordreAlfabetic (ArrayList<Object> numerosIText){
 			numerosIText.stream().filter(o -> o instanceof String)
 									.map(o -> (String) o)
 										.sorted(Comparator.comparing(str -> str.toLowerCase().charAt(0)))
@@ -46,7 +46,7 @@ public class App {
 			
 		}
 		
-		public static void contenenEPrimer (ArrayList<Object> numerosIText){
+		private static void contenenEPrimer (ArrayList<Object> numerosIText){
 			numerosIText.stream().filter(o -> o instanceof String)
 									.map(o -> (String) o)
 										.sorted(Comparator.comparing((String str) -> str.toLowerCase().contains("e")).reversed())
@@ -55,7 +55,7 @@ public class App {
 			
 		}
 		
-		public static void modificoaPer4 (ArrayList<Object> numerosIText){
+		private static void modificoaPer4 (ArrayList<Object> numerosIText){
 			numerosIText.stream().filter(o -> o instanceof String)
 									.map(o -> (String) o)
 										.map(o -> o.replace("a", "4"))
@@ -64,7 +64,7 @@ public class App {
 			
 		}
 		
-		public static void nomesNumerics (ArrayList<Object> numerosIText){
+		private static void nomesNumerics (ArrayList<Object> numerosIText){
 			numerosIText.stream().filter(o -> o instanceof Integer)
 									.map(o -> (Integer) o)
 												.forEach(System.out::println);

@@ -1,6 +1,6 @@
 package n2exercici1;
 
-@Serialitzador (directorio = "ObjetoSerializado.txt")
+@Serialitzador (directorio = "ObjetoSerializado.JSON")
 
  class ClaseSerialitzadora {
 

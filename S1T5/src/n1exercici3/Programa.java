@@ -30,11 +30,11 @@ public class Programa {
 		
 	}
 	
-	public static void escribirArchivo(String ruta, String contenido) {
+	private static void escribirArchivo(String ruta, String contenido) {
 		File file = new File(ruta);
 		
-		try {
-			PrintWriter salida = new PrintWriter(new FileWriter(file, true));
+		try (PrintWriter salida = new PrintWriter(new FileWriter(file, true))) {
+		
 			salida.println(contenido);
 			salida.close();
 		} catch (Exception e) {
@@ -42,18 +42,18 @@ public class Programa {
 		}
 	}
 	
-	public static void crearArchivo(String ruta) {
+	private static void crearArchivo(String ruta) {
 		File file = new File(ruta);
 		
-		try {
-			PrintWriter salida = new PrintWriter(file);
+		try (PrintWriter salida = new PrintWriter(file)){
+			
 			salida.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void imprimirDirectorio (File file) {
+	private static void imprimirDirectorio (File file) {
 		
 		String[] listaEscritorio = file.list();
 		

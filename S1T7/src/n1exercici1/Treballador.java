@@ -7,14 +7,14 @@ public class Treballador {
 	protected int preuHora;
 	
 	
-	public Treballador(String nom, String cognom, int preuHora) {
+	protected Treballador(String nom, String cognom, int preuHora) {
 		this.nom = nom;
 		this.cognom = cognom;
 		this.preuHora = preuHora;
 	}
 
 
-	public double calcularSou(int numHoresTreballades) {
+	protected double calcularSou(int numHoresTreballades) {
 		return numHoresTreballades*preuHora;
 	}
 	

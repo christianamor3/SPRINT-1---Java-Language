@@ -4,33 +4,35 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class AppTest {
+class n1ex1test {
 
+	App app = null;
+	ArrayList<String> mesosAny = null;
+	
+	@BeforeEach
+	public void setTestUp() {
+		app = new App();
+		mesosAny = app.getListaMesosAny();
+	}
+	
+	
 	@Test
 	void mesosAnyHauriaDeTenir12posicions() {
-		App app = new App();
-		ArrayList<String> mesosAny = app.getListaMesosAny();
-		
 		assertEquals(12, mesosAny.size());
 		
 	}
 	
 	@Test
 	void mesosAnyNoEsNula() {
-		App app = new App();
-		ArrayList<String> mesosAny = app.getListaMesosAny();
-		
 		assertNotNull(mesosAny);
 		
 	}
 	
 	@Test
 	void agostEnPosicio8() {
-		App app = new App();
-		ArrayList<String> mesosAny = app.getListaMesosAny();
-		
 		assertEquals("Agost", mesosAny.get(7));
 		
 	}

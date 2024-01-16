@@ -41,7 +41,7 @@ public class Programa {
 		
 	}
 	
-	public static HashMap<String, String> leerArchivo(String rutaArchivo){
+	private static HashMap<String, String> leerArchivo(String rutaArchivo){
 		HashMap<String, String> paisesCapitales = new HashMap<>();
 		FileReader archivo = null;
 		BufferedReader lector=null;
@@ -67,17 +67,17 @@ public class Programa {
 		return paisesCapitales;
 	}
 	
-	public static int generarNumRandom(String [] paisesClave) {
+	private static int generarNumRandom(String [] paisesClave) {
 		Random random = new Random();
 		int numRandom = random.nextInt(paisesClave.length);
 		return numRandom;
 	}
 	
-	public static String generarPaisRandom(int numRandom, String [] paisesClave) {
+	private static String generarPaisRandom(int numRandom, String [] paisesClave) {
 		return paisesClave[numRandom];
 	}
 	
-	public static void crearArchivo(String rutaArchivo) {
+	private static void crearArchivo(String rutaArchivo) {
 		File archivo = new File(rutaArchivo);
 		PrintWriter salida=null;
 		try {
@@ -89,7 +89,7 @@ public class Programa {
 		}
 	}
 
-	public static void escribirArchivo(String rutaArchivo, String nomUsuari, int puntuacio) {
+	private static void escribirArchivo(String rutaArchivo, String nomUsuari, int puntuacio) {
 		File archivo = new File(rutaArchivo);
 		
 		try (FileWriter fw = new FileWriter(archivo);

@@ -102,8 +102,9 @@ public class Programa {
 	private static void introducirPersonasArchivoCSV(String rutaArchivo, Persona persona) {
 			File archivo = new File(rutaArchivo);
 		
-			try (FileWriter fw = new FileWriter(archivo,true)){
-				PrintWriter salida = new PrintWriter(fw);
+			try (FileWriter fw = new FileWriter(archivo,true);
+					PrintWriter salida = new PrintWriter(fw)) {
+				
 				salida.println(persona.pasarDatosCSV()); 
 				salida.close();
 				System.out.println("Se ha añadido la persona correctamente");
@@ -117,8 +118,9 @@ public class Programa {
 	private static void introducirColumnas(String rutaArchivo, Persona persona) {
 		File archivo = new File(rutaArchivo);
 	
-		try (FileWriter fw = new FileWriter(archivo,true)){
-			PrintWriter salida = new PrintWriter(fw);
+		try (FileWriter fw = new FileWriter(archivo, true);
+				PrintWriter salida = new PrintWriter(fw)) {
+			
 			salida.println(persona.pasarDatosCSV()); 
 			salida.close();
 			System.out.println("Se han creado las columnas correctamente");

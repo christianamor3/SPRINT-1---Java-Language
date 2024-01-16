@@ -45,14 +45,14 @@ public class Programa {
 
 	}
 	
-	public static Restaurant crearRestaurants(String nom, int puntuacio) {
+	private static Restaurant crearRestaurants(String nom, int puntuacio) {
 		Restaurant r1 = new Restaurant(nom, puntuacio);
 		return r1;
 	}
 	
 	
 	
-	public static HashSet <Restaurant>  introduirRestaurantsHashSet(HashSet <Restaurant> restaurants, Restaurant r1) {	
+	private static HashSet <Restaurant>  introduirRestaurantsHashSet(HashSet <Restaurant> restaurants, Restaurant r1) {	
 		if (!restaurants.contains(r1)) {
 			restaurants.add(r1);
 		}
@@ -61,13 +61,13 @@ public class Programa {
 	
 	
 	// Metodo para pedir numero
-	static int pedirInt(String mensaje) {
+	private static int pedirInt(String mensaje) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println(mensaje);
 		return sc.nextInt();
 	}
 		
-	static String pedirString(String mensaje) { 
+	private static String pedirString(String mensaje) { 
 		Scanner sc = new Scanner(System.in);
 		System.out.println(mensaje);
 		return sc.nextLine().toUpperCase();

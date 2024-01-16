@@ -27,7 +27,7 @@ public class App {
 		
 	}
 	
-	public static void nomsMesosAny (ArrayList<String> nomsMesosAny){
+	private static void nomsMesosAny (ArrayList<String> nomsMesosAny){
 		nomsMesosAny.stream().forEach(str -> System.out.println(str));
 		
 	}

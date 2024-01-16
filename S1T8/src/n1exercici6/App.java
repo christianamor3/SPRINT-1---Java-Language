@@ -28,7 +28,7 @@ public class App {
 			
 		}
 		
-		public static void numerosIText (ArrayList<Object> numerosIText){
+	private static void numerosIText (ArrayList<Object> numerosIText){
 			numerosIText.stream().filter(o -> o instanceof String)
 									.map(o -> (String) o)
 										.sorted(Comparator.comparing(String::length))

@@ -24,7 +24,7 @@ public class App {
 		}
 	}
 	
-	public static ArrayList<String> nomsAmbO (ArrayList<String> noms){
+	private static ArrayList<String> nomsAmbO (ArrayList<String> noms){
 		ArrayList<String> nomsAmbO = new ArrayList<>(noms.stream().filter(str -> str.contains("o")).collect(Collectors.toList()));
 		return nomsAmbO;
 	}
