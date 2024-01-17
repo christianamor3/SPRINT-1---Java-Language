@@ -17,16 +17,18 @@ public class Programa {
 		String rutaArxiu = sc.nextLine();
 		
 		File file = new File(rutaArxiu);
-		imprimirDirectorio (file);
 		
+		imprimirDirectorio (file);
 		
 	}
 	
 	private static void imprimirDirectorio (File file) {
 		
-			String[] listaEscritorio = file.list();
+		String[] listaEscritorio = file.list();
 			
-			if (listaEscritorio!=null) {
+		if (listaEscritorio!=null) {
+			
+			Arrays.sort(listaEscritorio);
 			
 				for (int i = 0; i<listaEscritorio.length;i++) {
 		
@@ -51,4 +53,5 @@ public class Programa {
 				System.out.println("La ruta es nula");
 			}
 	}
+	
 }

@@ -7,9 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class Programa {
@@ -82,26 +80,31 @@ public class Programa {
 		
 		String[] listaEscritorio = file.list();
 		
-		for (int i = 0; i<listaEscritorio.length;i++) {
-
-			File f = new File(file.getAbsolutePath(),listaEscritorio[i]);
+		if (listaEscritorio!=null) {
 			
-			if (f.isDirectory()) {
-				
-				Date fecha = new Date (f.lastModified());
-				
-				escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (D)" + fecha);
+			Arrays.sort(listaEscritorio);
+			
+				for (int i = 0; i<listaEscritorio.length;i++) {
+			
+					File f = new File(file.getAbsolutePath(),listaEscritorio[i]);
+						
+					if (f.isDirectory()) {
+							
+						Date fecha = new Date (f.lastModified());
+							
+						escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (D)" + fecha);
+								
+						imprimirDirectorio(f);
+							
+					} else {
+						Date fecha = new Date (f.lastModified());
+			
+						escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (F)" + fecha);
 					
-				imprimirDirectorio(f);
-				
-			} else {
-				Date fecha = new Date (f.lastModified());
-
-				escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (F)" + fecha);
-				
+					}
+				}
 			}
 		}
-	}
 
 }
 

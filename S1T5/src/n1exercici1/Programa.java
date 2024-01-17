@@ -1,15 +1,13 @@
 package n1exercici1;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class Programa {
 
 	public static void programa() {
-
+		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Introdueix la ruta del directori");
@@ -17,15 +15,27 @@ public class Programa {
 		
 		File file = new File(rutaArxiu);
 		
-		String[] listaEscritorio = file.list();
 		
-		llistarDirectoriAlfabeticament(listaEscritorio);
+		imprimirDirectorio (file);
+		
 	}
 	
-	private static void llistarDirectoriAlfabeticament(String[] listaEscritorio) {
-			ArrayList<String> listaEscritorioArray = new ArrayList<>(Arrays.asList(listaEscritorio));
+	private static void imprimirDirectorio (File file) {
+		
+		String[] listaEscritorio = file.list();
 			
-			listaEscritorioArray.stream().sorted(Comparator.comparing(str -> str.toLowerCase().charAt(0))).forEach(System.out::println);
-	}
+		if (listaEscritorio!=null) {
+			
+			Arrays.sort(listaEscritorio);
+			
+				for (int i = 0; i<listaEscritorio.length;i++) {
 
-}
+						System.out.println(listaEscritorio[i]);
+			
+					}
+		} else {
+			System.out.println("La ruta es nula");
+			}
+		} 
+	}
+	
