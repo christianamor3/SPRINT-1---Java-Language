@@ -1,12 +1,10 @@
 package n1exercici5;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 
 
 import java.io.BufferedReader;
@@ -15,9 +13,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class Programa {
@@ -53,28 +48,41 @@ public class Programa {
 	}
 	
 	private static void serializar(Persona persona) {
+		ObjectOutputStream objectOutputStream = null;
 		try {
-			ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("ObjecteSerialitzat.ser"));
+			objectOutputStream = new ObjectOutputStream(new FileOutputStream("ObjecteSerialitzat.ser"));
 			objectOutputStream.writeObject(persona);
-			objectOutputStream.close();
 		} catch (IOException e) {
 			e.getMessage();
+		} finally {
+			try {
+				objectOutputStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
 		}
 	
 		System.out.println("Se ha serializado el objeto correctamente");
 	}
 	
 	private static void deserializar(Persona persona) {
-		
+		ObjectInputStream objectInputStream = null;
 		try {
-			ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("ObjecteSerialitzat.ser"));
+			objectInputStream = new ObjectInputStream(new FileInputStream("ObjecteSerialitzat.ser"));
 			Persona personaDeserializado = (Persona) objectInputStream.readObject();
-			objectInputStream.close();
+			
 			System.out.println(personaDeserializado.getNom());
 		} catch (IOException e) {
 			e.getMessage();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				objectInputStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		System.out.println("Se ha DEserializado el objeto correctamente");
@@ -82,15 +90,22 @@ public class Programa {
 			
 	private static void leerArchivoTXT(String ruta) {
 		File file = new File(ruta);
+		BufferedReader salida = null;
 				
 		try {
-			BufferedReader salida = new BufferedReader(new FileReader(file));
+			salida = new BufferedReader(new FileReader(file));
 			String linea="";
 			while ((linea=salida.readLine())!=null) {
 				System.out.println(linea);
 			}
 		} catch (Exception e) {
 			System.out.println("El archivo no se ha encontrado");
+		} finally {
+			try {
+				salida.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 		
@@ -100,7 +115,7 @@ public class Programa {
 		try (PrintWriter salida = new PrintWriter(new FileWriter(file, true))) {
 		
 			salida.println(contenido);
-			salida.close();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -111,7 +126,6 @@ public class Programa {
 		
 		try (PrintWriter salida = new PrintWriter(file)){
 			
-			salida.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -37,15 +38,21 @@ public class Programa {
 			
 	private static void leerArchivoTXT(String ruta) {
 		File file = new File(ruta);
-				
+		BufferedReader salida =	null;
 		try {
-			BufferedReader salida = new BufferedReader(new FileReader(file));
+			salida = new BufferedReader(new FileReader(file));
 			String linea="";
 			while ((linea=salida.readLine())!=null) {
 				System.out.println(linea);
 			}
 		} catch (Exception e) {
 			System.out.println("El archivo no se ha encontrado");
+		} finally {
+			try {
+				salida.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 		
@@ -56,7 +63,6 @@ public class Programa {
 		try (PrintWriter salida = new PrintWriter(new FileWriter(file, true))) {
 		
 			salida.println(contenido);
-			salida.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -67,7 +73,6 @@ public class Programa {
 		
 		try (PrintWriter salida = new PrintWriter(file)){
 			
-			salida.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

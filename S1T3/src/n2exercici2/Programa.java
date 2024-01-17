@@ -1,6 +1,5 @@
 package n2exercici2;
 
-import java.util.HashSet;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -10,7 +9,7 @@ public class Programa {
 		
 		Scanner sc = new Scanner (System.in);
 
-		HashSet <Restaurant> restaurantsHash = new HashSet<>(); // Creamos el HashSet
+		TreeSet <Restaurant> restaurantsTree = new TreeSet<>(); // Creamos el HashSet
 		
 		boolean seguirBucle=true;
 		
@@ -19,11 +18,9 @@ public class Programa {
 			
 			int puntuacio=pedirInt("Introdueix la puntuacio del restaurant");
 			
-			restaurantsHash=introduirRestaurantsHashSet(restaurantsHash, crearRestaurants(nom, puntuacio));
+			restaurantsTree=introduirRestaurantsTreeSet(restaurantsTree, crearRestaurants(nom, puntuacio));
 			
 			System.out.println("Aquest és el llistat de restaurants ordenats per nom i puntuacio");
-			
-			TreeSet<Restaurant> restaurantsTree= new TreeSet<Restaurant>(restaurantsHash);
 			
 			for (Restaurant rts : restaurantsTree) {
 				System.out.println(rts.getNom() + " " + rts.getPuntuacio());
@@ -52,15 +49,14 @@ public class Programa {
 	
 	
 	
-	private static HashSet <Restaurant>  introduirRestaurantsHashSet(HashSet <Restaurant> restaurants, Restaurant r1) {	
-		if (!restaurants.contains(r1)) {
-			restaurants.add(r1);
+	private static TreeSet <Restaurant>  introduirRestaurantsTreeSet(TreeSet <Restaurant> restaurantsTree, Restaurant r1) {	
+		if (!restaurantsTree.contains(r1)) {
+			restaurantsTree.add(r1);
 		}
-		return restaurants;
+		return restaurantsTree;
 	}
 	
 	
-	// Metodo para pedir numero
 	private static int pedirInt(String mensaje) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println(mensaje);

@@ -106,7 +106,6 @@ public class Programa {
 					PrintWriter salida = new PrintWriter(fw)) {
 				
 				salida.println(persona.pasarDatosCSV()); 
-				salida.close();
 				System.out.println("Se ha añadido la persona correctamente");
 			} catch (FileNotFoundException e) {
 				System.err.println(e.getMessage());
@@ -122,7 +121,6 @@ public class Programa {
 				PrintWriter salida = new PrintWriter(fw)) {
 			
 			salida.println(persona.pasarDatosCSV()); 
-			salida.close();
 			System.out.println("Se han creado las columnas correctamente");
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());

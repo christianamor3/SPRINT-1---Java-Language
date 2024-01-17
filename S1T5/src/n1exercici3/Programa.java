@@ -36,7 +36,6 @@ public class Programa {
 		try (PrintWriter salida = new PrintWriter(new FileWriter(file, true))) {
 		
 			salida.println(contenido);
-			salida.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -47,7 +46,6 @@ public class Programa {
 		
 		try (PrintWriter salida = new PrintWriter(file)){
 			
-			salida.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

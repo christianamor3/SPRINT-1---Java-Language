@@ -98,7 +98,6 @@ public class Programa {
 			salida.print(nomUsuari);
 			salida.print(" - ");
 			salida.print(puntuacio);
-			salida.close();
 			System.out.println("Se ha pasado la puntuacion de " + nomUsuari + " al archivo correctamente");
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
