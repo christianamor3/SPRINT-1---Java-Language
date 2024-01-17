@@ -43,7 +43,7 @@ public class Programa {
 		Persona persona = new Persona("Christian", "Amor");
 		
 		serializar(persona);
-		deserializar(persona);
+		deserializar();
 			
 	}
 	
@@ -66,7 +66,7 @@ public class Programa {
 		System.out.println("Se ha serializado el objeto correctamente");
 	}
 	
-	private static void deserializar(Persona persona) {
+	private static void deserializar() {
 		ObjectInputStream objectInputStream = null;
 		try {
 			objectInputStream = new ObjectInputStream(new FileInputStream("ObjecteSerialitzat.ser"));
