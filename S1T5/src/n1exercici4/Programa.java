@@ -99,12 +99,12 @@ public class Programa {
 					} else {
 						Date fecha = new Date (f.lastModified());
 			
-						escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (F)" + fecha);
-					
+						escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (F)" + fecha);			
 					}
-				}
-			}
+				} 
+		} else {
+			System.out.println("La ruta es nula");
 		}
-
+	}
 }
 

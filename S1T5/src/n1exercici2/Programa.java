@@ -49,9 +49,10 @@ public class Programa {
 						System.out.println(listaEscritorio[i] + " (F)" + fecha);
 					}	
 				} 
-			} else {
-				System.out.println("La ruta es nula");
-			}
+				
+		} else {
+			System.out.println("La ruta es nula");
+		}
 	}
 	
 }

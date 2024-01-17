@@ -15,7 +15,6 @@ public class Programa {
 		
 		File file = new File(rutaArxiu);
 		
-		
 		imprimirDirectorio (file);
 		
 	}
@@ -29,13 +28,11 @@ public class Programa {
 			Arrays.sort(listaEscritorio);
 			
 				for (int i = 0; i<listaEscritorio.length;i++) {
-
 						System.out.println(listaEscritorio[i]);
-			
-					}
+				}
 		} else {
 			System.out.println("La ruta es nula");
-			}
-		} 
-	}
+		}
+	} 
+}
 	

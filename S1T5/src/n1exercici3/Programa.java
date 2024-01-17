@@ -72,9 +72,11 @@ public class Programa {
 			
 						escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (F)" + fecha);			
 					}
-				}
-			}
+				} 
+		} else {
+			System.out.println("La ruta es nula");
 		}
+	}
 }
 
 

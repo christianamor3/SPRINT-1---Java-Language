@@ -140,26 +140,26 @@ public class Programa {
 			
 			Arrays.sort(listaEscritorio);
 			
-			for (int i = 0; i<listaEscritorio.length;i++) {
-
-				File f = new File(file.getAbsolutePath(),listaEscritorio[i]);
+				for (int i = 0; i<listaEscritorio.length;i++) {
 			
-				if (f.isDirectory()) {
-					
-					Date fecha = new Date (f.lastModified());
-					
-					escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (D)" + fecha);
+					File f = new File(file.getAbsolutePath(),listaEscritorio[i]);
 						
-					imprimirDirectorio(f);
-					
-				} else {
-					
-					Date fecha = new Date (f.lastModified());
-	
-					escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (F)" + fecha);
-					
-				}
-			}
+					if (f.isDirectory()) {
+							
+						Date fecha = new Date (f.lastModified());
+							
+						escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (D)" + fecha);
+								
+						imprimirDirectorio(f);
+							
+					} else {
+						Date fecha = new Date (f.lastModified());
+			
+						escribirArchivo("ListaLista.txt", listaEscritorio[i] + " (F)" + fecha);			
+					}
+				} 
+		} else {
+			System.out.println("La ruta es nula");
 		}
 	}
 }
