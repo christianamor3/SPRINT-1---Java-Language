@@ -1,8 +1,5 @@
 package n1exercici5;
 
-import java.util.ArrayList;
-import java.util.stream.Collectors;
-
 public class App {
 
 	public static void main(String[] args) {

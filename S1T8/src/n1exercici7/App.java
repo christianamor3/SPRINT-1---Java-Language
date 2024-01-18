@@ -1,40 +1,20 @@
 package n1exercici7;
 
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.stream.Collectors;
+import java.util.List;
 
 public class App {
 
 	public static void main(String[] args) {
 
+		List<Object> numsAndText = List.of("Gener",1,"Març",2,"Maig",3,
+													"Juliol", 4, "Setembre",
+															5, "Novembre", 6);
 			
-			ArrayList<Object> numerosIText= new ArrayList<>();
-			
-			numerosIText.add("Gener");
-			numerosIText.add(1);
-			numerosIText.add("Març");
-			numerosIText.add(2);
-			numerosIText.add("Maig");
-			numerosIText.add(3);
-			numerosIText.add("Juliol");
-			numerosIText.add(4);
-			numerosIText.add("Setembre");
-			numerosIText.add(5);
-			numerosIText.add("Novembre");
-			numerosIText.add(6);
-			
-			numerosIText(numerosIText);
+		numsAndText.stream().filter(o -> o instanceof String)
+								.map(o -> (String) o)
+									.sorted(Comparator.comparing(String::length).reversed())
+										.forEach(System.out::println);;
 			
 		}
-		
-		private static void numerosIText (ArrayList<Object> numerosIText){
-			numerosIText.stream().filter(o -> o instanceof String)
-									.map(o -> (String) o)
-										.sorted(Comparator.comparing(String::length).reversed())
-											.forEach(System.out::println);;
-			
-			
-		}
-
 	}

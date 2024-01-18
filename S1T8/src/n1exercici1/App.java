@@ -1,6 +1,7 @@
 package n1exercici1;
 
-import java.util.ArrayList;
+import java.util.List;
+
 import java.util.stream.Collectors;
 
 public class App {
@@ -8,24 +9,17 @@ public class App {
 	public static void main(String[] args) {
 
 		
-		ArrayList<String> noms = new ArrayList<>();
+		List<String> names = List.of("Christian","Juan","Gloria","Mariona","Rosa","Claudia");
 		
-		noms.add("Christian");
-		noms.add("Juan");
-		noms.add("Gloria");
-		noms.add("Mariona");
-		noms.add("Rosa");
-		noms.add("Claudia");
+		List<String> namesWithO = namesWithO(names);
 		
-		ArrayList<String> nomsAmbO = nomsAmbO(noms);
-		
-		for (String str : nomsAmbO) {
+		for (String str : namesWithO) {
 			System.out.println(str);
 		}
 	}
 	
-	private static ArrayList<String> nomsAmbO (ArrayList<String> noms){
-		ArrayList<String> nomsAmbO = new ArrayList<>(noms.stream().filter(str -> str.contains("o")).collect(Collectors.toList()));
+	private static List<String> namesWithO (List<String> names){
+		List<String> nomsAmbO = names.stream().filter(str -> str.contains("o")).collect(Collectors.toList());
 		return nomsAmbO;
 	}
 

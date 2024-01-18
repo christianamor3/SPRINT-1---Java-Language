@@ -1,32 +1,24 @@
 package n2exercici1;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class App {
 
 	public static void main(String[] args) {
 
+		List<String> names = List.of("Christian","Juan","Gloria","Mariona","Alicia","Ari");
 		
-		ArrayList<String> noms = new ArrayList<>();
+		List<String> namesWithAandThreeChar = namesWithAandThreeChar(names);
 		
-		noms.add("Christian");
-		noms.add("Juan");
-		noms.add("Gloria");
-		noms.add("Mariona");
-		noms.add("Alicia");
-		noms.add("Ari");
-		
-		ArrayList<String> nomsAmbO = nomsAmbA3(noms);
-		
-		for (String str : nomsAmbO) {
+		for (String str : namesWithAandThreeChar) {
 			System.out.println(str);
 		}
 	}
 	
-	private static ArrayList<String> nomsAmbA3 (ArrayList<String> noms){
-		ArrayList<String> nomsAmbA3 = new ArrayList<>(noms.stream().filter(str -> str.startsWith("A") && str.length()==3).collect(Collectors.toList()));
-		return nomsAmbA3;
+	private static List<String> namesWithAandThreeChar (List<String> names){
+		List<String> namesWithAandThreeChar = names.stream().filter(str -> str.startsWith("A") && str.length()==3).collect(Collectors.toList());
+		return namesWithAandThreeChar;
 	}
 
 }

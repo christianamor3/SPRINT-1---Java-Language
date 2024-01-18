@@ -1,6 +1,6 @@
 package n1exercici2;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class App {
@@ -8,25 +8,19 @@ public class App {
 	public static void main(String[] args) {
 
 		
-		ArrayList<String> noms = new ArrayList<>();
+		List<String> names = List.of("Christian","Juan","Gloria","Mariona","Rosa","Claudia");
 		
-		noms.add("Christian");
-		noms.add("Juan");
-		noms.add("Gloria");
-		noms.add("Mariona");
-		noms.add("Rosa");
-		noms.add("Claudia");
+		List<String> namesWithOAndFiveChar = namesWithOAndFiveChar(names);
 		
-		ArrayList<String> nomsAmbO = nomsAmbO(noms);
-		
-		for (String str : nomsAmbO) {
+		for (String str : namesWithOAndFiveChar) {
 			System.out.println(str);
 		}
 	}
+		
 	
-	private static ArrayList<String> nomsAmbO (ArrayList<String> noms){
-		ArrayList<String> nomsAmbO = new ArrayList<>(noms.stream().filter(str -> str.contains("o") && str.length() >5).collect(Collectors.toList()));
-		return nomsAmbO;
+	private static List<String> namesWithOAndFiveChar (List<String> names){
+		List<String> namesWithOAndFiveChar = names.stream().filter(str -> str.contains("o") && str.length() >5).collect(Collectors.toList());
+		return namesWithOAndFiveChar;
 	}
 
 }
