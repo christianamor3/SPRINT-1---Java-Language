@@ -2,9 +2,9 @@ package n1exercici1;
 
 public class NoGenericMethods {
 
-	String nom;
-	String cognom;
-	String DNI;
+	private String nom;
+	private String cognom;
+	private String DNI;
 	
 	public NoGenericMethods(String nom, String cognom, String DNI) {
 		this.nom = nom;
