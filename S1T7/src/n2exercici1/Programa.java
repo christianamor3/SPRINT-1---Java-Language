@@ -23,14 +23,22 @@ public class Programa {
 	}	
 	
 	private static void serializar(String ruta, Persona persona1) {
+		FileOutputStream fileOutputStream = null;
+		ObjectOutputStream objectOutputStream = null; 
 		try {
-			FileOutputStream fileOutputStream = new FileOutputStream(ruta);
-			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			fileOutputStream = new FileOutputStream(ruta);
+			objectOutputStream = new ObjectOutputStream(fileOutputStream);
 			objectOutputStream.writeObject(persona1);
 			System.out.println("Archivo serializado correctamente");
-			objectOutputStream.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				objectOutputStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
 		}
 	}
 
